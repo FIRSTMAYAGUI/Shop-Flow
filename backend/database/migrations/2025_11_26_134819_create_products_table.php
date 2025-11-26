@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('set null');
             $table->foreignId('category_id')->constrained('categories')->onDelete('set null');
+            $table->string('name');
             $table->unsignedInteger('quantity')->default(0);
             $table->decimal('price', 10, 2);
             $table->text('description');
