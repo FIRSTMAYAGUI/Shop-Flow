@@ -37,8 +37,7 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $validatedCategoryData = Validator::make($request->all(), [
-            'name' => 'required|max:255|string',
-            'slug' => 'required|max:255|string|unique:categories,slug',
+            'name' => 'required|max:255|string'
         ]);
 
         if($validatedCategoryData->fails()){
@@ -53,7 +52,7 @@ class CategoriesController extends Controller
 
         $category = Categories::create([
             'name' => $request->name,
-            'slug' => $request->$slug,
+            'slug' => $slug
         ]); 
 
         return response()->json([
@@ -101,8 +100,7 @@ class CategoriesController extends Controller
         }
 
         $validatedCategoryData = Validator::make($request->all(), [
-            'name' => 'required|max:255|string',
-            'slug' => 'required|max:255|string|unique:categories,slug',
+            'name' => 'required|max:255|string'
         ]);
 
         if($validatedCategoryData->fails()){
@@ -115,9 +113,11 @@ class CategoriesController extends Controller
 
         $slug = Str::slug($request->name, '-');
 
-        $category = Categories::update([
+        //dd($slug);
+
+        $category->update([
             'name' => $request->name,
-            'slug' => $request->$slug,
+            'slug' => $slug,
         ]); 
 
         return response()->json([
