@@ -24,7 +24,7 @@ class ProductSeeder extends Seeder
         // 'images',
 
         Product::create([
-            'name' => 'shoes',
+            'name' => 'Nike shoes',
             'user_id' => 1,
             'category_id' => 1,
             'price' => 8500,

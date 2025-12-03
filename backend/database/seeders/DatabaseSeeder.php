@@ -23,21 +23,21 @@ class DatabaseSeeder extends Seeder
         // 'password',
         // 'role'
 
-        // User::create([
-        //     'fullname' => 'Test User',
-        //     'email' => 'test@example.com',
-        //     'password' => Hash::make('something'),
-        //     'role' => 'vendor',
-        // ]);
+        User::create([
+            'fullname' => 'User2',
+            'email' => 'user2@example.com',
+            'password' => Hash::make('something'),
+            'role' => 'user',
+        ]);
 
         // Categories::create([
         //     'name' => 'fashion',
         //     'slug' => 'fashion',
         // ]);
 
-        $this->call([
-            // Categories::class,
-            ProductSeeder::class
-        ]);
+        // $this->call([
+        //     // Categories::class,
+        //     ProductSeeder::class
+        // ]);
     }
 }

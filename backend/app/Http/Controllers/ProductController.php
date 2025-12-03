@@ -70,16 +70,6 @@ class ProductController extends Controller
             }
         }
 
-        /* 'name',
-        'user_id',
-        'category_id',
-        'price',
-        'in_stock',
-        'quantity',
-        'description',
-        'image_url',
-        'images', */
-
         $product = [
             'name' => $request->name,
             'user_id' => $request->user_id,
