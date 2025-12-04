@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -56,41 +57,43 @@ class AuthController extends Controller
             ], 422);
         }
 
-        if(Auth::attempt($validateUser)){
-            $user = Auth::user();
+        $user = User::where('email', $request->email)->first();
 
-            $token = $user->createToken('userToken')->plainTextToken;
-
+        if(!$user || !Hash::check($request->password, $user->password)){
             return response()->json([
-                'message' => 'user login successfully',
-                'status' => 'success',
-                'data' => $user,
-                'token' => $token,
-            ], 200); 
+                'message' => 'Incorrect credentials',
+                'status' => 'failed',
+            ], 401);
         }
 
+        $token = $user->createToken('userToken')->plainTextToken;
+
         return response()->json([
-            'message' => 'Incorrect credentials',
-            'status' => 'failed',
-        ], 401);
+            'message' => 'User login successfully',
+            'status' => 'success',
+            'data' => $user,
+            'token' => $token,
+        ], 200); 
     }
 
     public function logout (Request $request){
 
-        $authUser = $request->user(); 
+        $user = $request->user();
 
-        if($authUser){
-            $authUser->token()->revoke();
-
+        if(!$user){
             return response()->json([
-                'message' => 'User logged out',
-                'status' => 'success'
-            ], 200);
+                'message' => 'User not authenticated',
+                'status' => 'failed',
+            ], 401);
         }
 
+        $token = $user->currentAccessToken();
+
+        $token->delete();
+
         return response()->json([
-            'message' => 'User not authenticated',
-            'status' => 'failed',
-        ], 401);
+            'message' => 'User logged out',
+            'status' => 'success',
+        ], 200);
     }
 }
