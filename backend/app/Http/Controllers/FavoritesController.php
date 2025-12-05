@@ -150,6 +150,15 @@ class FavoritesController extends Controller
             ], 404);
         }
 
+        $userFav = Favorites::where('user_id', $userId)->get();
+
+        if($userFav->isEmpty()){
+            return response()->json([
+                'message' => 'Favorite doesn\'t belong to user',
+                'status' => 'failed',
+            ], 403);
+        }
+
         $favorite->delete();
 
         return response()->json([

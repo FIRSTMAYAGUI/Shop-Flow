@@ -27,4 +27,4 @@ Route::controller(FavoritesController::class)->group(function (){
     Route::get('/favorites/{userId}', 'index');
     Route::get('/favorites/{favoriteId}/{userId}', 'show');
     Route::delete('/favorites/{favoriteId}/{userId}', 'destroy');
-});
+})->middleware('auth:sanctum');
