@@ -18,9 +18,21 @@ Route::controller(AuthController::class)->group(function (){
 });
 
 
-Route::apiResource('/products', ProductController::class);
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/{productId}', [ProductController::class, 'show']);
+Route::controller(ProductController::class)->group(function (){
+    Route::post('/products', 'store');
+    Route::put('/products/{productId}', 'update');
+    Route::delete('/products/{productId}', 'destroy');
+})->middleware('auth:sanctum');
 
-Route::apiResource('/categories', CategoriesController::class);
+Route::get('/categories', [CategoriesController::class, 'index']);
+Route::controller(CategoriesController::class)->group(function (){
+    Route::post('/categories', 'store');
+    Route::get('/categories/{categoryId}', 'show');
+    Route::put('/categories/{categoryId}', 'update');
+    Route::delete('/categories/{categoryId}', 'destroy');
+})->middleware('auth:sanctum');
 
 Route::controller(FavoritesController::class)->group(function (){
     Route::post('/favorites', 'store');
