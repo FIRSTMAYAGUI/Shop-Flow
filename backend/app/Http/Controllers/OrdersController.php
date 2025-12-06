@@ -26,14 +26,20 @@ class OrdersController extends Controller
             ], 404);
         }
 
-        $userOrder = Orders::where('user_id', $userId)->get();
+        $orders = Orders::where('user_id', $userId)->get();
 
-        if(!$userOrder){
+        if($orders->isEmpty()){
             return response()->json([
                 'message' => 'No orders found',
                 'status' => 'success',
             ], 200);
         }
+
+        return response()->json([
+            'message' => 'Orders fetched successfully',
+            'status' => 'success',
+            'orders' => $orders->load('orderItem.product'),
+        ], 200);
     }
 
     /**
