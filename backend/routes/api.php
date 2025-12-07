@@ -46,4 +46,5 @@ Route::middleware('auth:sanctum')->controller(OrdersController::class)->group(fu
     Route::post('/users/orders', 'store');
     Route::get('/users/orders/{userId}', 'index');
     Route::get('/users/orders/{userId}/{orderId}', 'show');
+    Route::delete('/users/orders/{userId}/{orderId}', 'destroy');
 });

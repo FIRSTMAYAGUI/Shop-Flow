@@ -101,13 +101,14 @@ class OrdersController extends Controller
                 'status' => 'success',
                 'order' => $order->load('orderItem.product'),
             ]);
+
         } catch (\Exception $e) {
 
             DB::rollBack();
 
             return response()->json([
                 'message' => 'Server error during order placement',
-                'status' => 'error',
+                'status' => 'failed',
                 'error' => $e->getMessage(),
             ], 500);
         }
@@ -139,6 +140,7 @@ class OrdersController extends Controller
 
         $userOrder = Orders::where('user_id', $userId)->where('id', $orderId)->get();
 
+        //dd($userOrder);
         if($userOrder->isEmpty()){
             return response()->json([
                 'message' => 'Order doesn\'t belong to user',
@@ -154,18 +156,53 @@ class OrdersController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Orders $orders)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $userId, string $orderId)
     {
-        //
+        $user = User::find($userId);
+
+        if(!$user){
+            return response()->json([
+                'message' => 'User doesn\'t exists',
+                'status' => 'failed',
+            ], 404);
+        }
+
+        $order = Orders::where('user_id', $userId)->where('id', $orderId)->first();
+
+        if(!$order){
+            return response()->json([
+                'message' => 'Order doesn\'t exists or doesn\'t belong to user',
+                'status' => 'failed',
+            ], 404);
+        }
+
+        DB::beginTransaction();
+        
+        try {
+
+            OrderItem::where('order_id', $orderId)->delete();
+
+            $order->delete();
+
+            DB::commit();
+
+            return response()->json([
+                'message' => 'Order cancelled',
+                'status' => 'success',
+            ]);
+
+        } catch (\Exception $e) {
+
+            DB::rollBack();
+
+            return response()->json([
+                'message' => 'Server error during order cancellation',
+                'status' => 'failed',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+
     }
 }
