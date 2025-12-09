@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\LoginSuccessMail;
+use App\Mail\WelcomeMail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -35,8 +38,10 @@ class AuthController extends Controller
 
         $token = $user->createToken('userToken')->plainTextToken;
 
+        Mail::to($user)->send(new WelcomeMail($user));
+
         return response()->json([
-            'message' => 'user created successfully',
+            'message' => 'user created successfully a message was sent to your email',
             'status' => 'success',
             'data' => $user,
             'token' => $token,
@@ -67,6 +72,8 @@ class AuthController extends Controller
         }
 
         $token = $user->createToken('userToken')->plainTextToken;
+
+        Mail::to($user)->send(new LoginSuccessMail($user));
 
         return response()->json([
             'message' => 'User login successfully',
