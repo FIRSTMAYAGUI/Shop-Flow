@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -44,5 +45,46 @@ class UserController extends Controller
             'status' => 'success',
             'data' => $user,
         ], 200);
+    }
+
+    public function changePassword(Request $request, string $userId){
+
+        $user = User::where('id', $userId)->first();
+
+        if(!$user){
+            return response()->json([
+                'message' => 'user doesn\'t exist',
+                'status' => 'failed',
+            ], 404);
+        }
+
+        $validateUserPwd = Validator::make($request->all(), [
+            'current_password' => 'required|string|min:8|max:255',
+            'new_password' => 'required|string|min:8|max:255|confirmed',
+        ]);
+
+        if($validateUserPwd->fails()){
+            return response()->json([
+                'message' => 'Failed to change password',
+                'status' => 'failed',
+                'errors' => $validateUserPwd->errors(),
+            ], 422);
+        }
+
+        if(!Hash::check($request->current_password, $user->password)){
+            return response()->json([
+                'message' => 'The current password is incorrect',
+                'status' => 'failed',
+            ], 422);
+        }
+
+        $user->update([
+            'password' => $request->new_password
+        ]);
+
+        return response()->json([
+            'message' => 'Password changed successfully',
+            'status' => 'success'
+        ]);
     }
 }
