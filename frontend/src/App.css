@@ -1,44 +1,29 @@
 @import "tailwindcss";
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body{
+  color: #0e0d0de0;
+  /* filter: drop-shadow(0 0 6px rgba(82, 131, 238, 0.658)) */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.navbar{
+  @apply text-[1.2em] font-medium flex justify-between items-center px-20 py-5;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo{
+  @apply text-3xl font-extrabold bg-gradient-to-r from-[#1851ee] to-[#4f8cff] bg-clip-text text-transparent
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.nav-link{
+  @apply flex *:hover:text-[#1851ee] *:hover:transition *:hover:delay-150 justify-between w-[20em]
+}
+/* .secondary-btn{
+  @apply hover:border-[#1851ee] hover:text-[#1851ee];
+} */
+
+.icon-link{
+  @apply hover:text-[#1851ee] hover:transition hover:delay-150
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.login-btn{
+  @apply transition delay-150 hover:border-[#1851ee] hover:text-[#1851ee] border border-[#0e0d0de0] px-8 py-3 rounded
 }
