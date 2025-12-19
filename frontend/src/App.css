@@ -1,29 +1,40 @@
 @import "tailwindcss";
 
-body{
-  color: #0e0d0de0;
-  /* filter: drop-shadow(0 0 6px rgba(82, 131, 238, 0.658)) */
+@theme {
+  --color-primary-color: var(--primary-color);
+  --color-default-black: var(--default-black);
 }
 
+:root{
+  --primary-color: #1851ee;
+  --default-black: #0e0d0de0;
+}
+
+body{
+  @apply text-default-black
+}
+
+/* Navbar styling */
+
 .navbar{
-  @apply text-[1.2em] font-medium flex justify-between items-center px-20 py-5;
+  @apply text-[1.2rem] font-medium flex justify-between items-center px-3 py-5 lg:px-20;
 }
 
 .logo{
-  @apply text-3xl font-extrabold bg-gradient-to-r from-[#1851ee] to-[#4f8cff] bg-clip-text text-transparent
+  @apply text-[2rem] font-extrabold bg-linear-to-r from-primary-color to-[#4f8cff] bg-clip-text text-transparent;
+  /* font-size: clamp(1.5rem, 2em, 2.5rem); */
 }
 
 .nav-link{
-  @apply flex *:hover:text-[#1851ee] *:hover:transition *:hover:delay-150 justify-between w-[20em]
+  @apply hidden lg:flex *:hover:text-primary-color *:hover:transition *:hover:delay-150 justify-between w-100
 }
-/* .secondary-btn{
-  @apply hover:border-[#1851ee] hover:text-[#1851ee];
-} */
 
-.icon-link{
-  @apply hover:text-[#1851ee] hover:transition hover:delay-150
+.icon{
+  @apply hover:text-primary-color hover:transition hover:delay-150
 }
 
 .login-btn{
-  @apply transition delay-150 hover:border-[#1851ee] hover:text-[#1851ee] border border-[#0e0d0de0] px-8 py-3 rounded
+  @apply transition delay-150 hover:border-primary-color hover:text-primary-color border border-default-black px-6 py-1 md:px-8 md:py-3 rounded
 }
+
+/* End of Navbar styling */

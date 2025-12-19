@@ -1,9 +1,9 @@
-import { Search, ShoppingCart, User } from "lucide-react"
+import { Menu ,Search, ShoppingCart, User } from "lucide-react"
 import { Link } from "react-router-dom"
 
 const Navbar = () => {
   return (
-    <header>
+    <header className="w-full">
         <div className="navbar">
             
             {/* Logo */}
@@ -17,23 +17,29 @@ const Navbar = () => {
                 <Link to={'/'}>Contact</Link>
             </nav>
 
-            {/* icons and Login */}
-            <div className="flex gap-10 items-center">
-                <div className="flex gap-6 items-center">
-                    <div>
-                        <Search />
-                    </div>
-                    <Link to={'/'} className="icon-link">
+            {/* icons */}
+            <div className="flex gap-10 items-center ">
+                <div className="xl:flex gap-6 items-center hidden">
+                    <button className="cursor-pointer">
+                        <Search className="icon"/>
+                    </button>
+                    <Link to={'/'} className="icon">
                         <User />
                     </Link>
-                    <Link to={'/'} className="icon-link">
+                    <Link to={'/'} className="icon">
                         <ShoppingCart/>
                     </Link>
                 </div>
 
-                <button className="login-btn">
-                    <Link to={'/'}>Login</Link>
-                </button>
+                {/* Login and menu */}
+                <div className="flex sm:w-48 md:w-fit sm:justify-between gap-6">
+                    <button className="login-btn">
+                        <Link to={'/'}>Login</Link>
+                    </button>
+                    <button className="xl:hidden">
+                        <Menu size={'45px'} className="icon cursor-pointer"/>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
