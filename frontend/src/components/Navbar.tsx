@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const Navbar = () => {
   return (
-    <header className="w-full">
+    <header className="w-full text-4xl bg-[url(./assets/woman-shop.jpg)] bg-cover bg-left h-screen relative before:absolute before:bg-[#a3a3d14f] before:w-full before:h-full">
         <div className="navbar">
             
             {/* Logo */}
@@ -36,8 +36,8 @@ const Navbar = () => {
                     <button className="login-btn">
                         <Link to={'/'}>Login</Link>
                     </button>
-                    <button className="xl:hidden">
-                        <Menu size={'45px'} className="icon cursor-pointer"/>
+                    <button className="xl:hidden cursor-pointer">
+                        <Menu size={'45px'} className="icon"/>
                     </button>
                 </div>
             </div>

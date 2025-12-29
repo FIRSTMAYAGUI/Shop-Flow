@@ -17,7 +17,7 @@ body{
 /* Navbar styling */
 
 .navbar{
-  @apply text-[1.2rem] font-medium flex justify-between items-center px-3 py-5 lg:px-20;
+  @apply text-[1.2rem] font-medium flex justify-between items-center px-3 py-5 lg:px-20 z-1000 absolute w-full;
 }
 
 .logo{
@@ -34,7 +34,7 @@ body{
 }
 
 .login-btn{
-  @apply transition delay-150 hover:border-primary-color hover:text-primary-color border border-default-black px-6 py-1 md:px-8 md:py-3 rounded
+  @apply transition delay-150 hover:border-primary-color hover:text-primary-color border border-default-black px-6 py-1 md:px-8 md:py-3 rounded cursor-pointer
 }
 
 /* End of Navbar styling */
