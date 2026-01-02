@@ -3,10 +3,12 @@
 @theme {
   --color-primary-color: var(--primary-color);
   --color-default-black: var(--default-black);
+  --color-hover: var(--primary-hover);
 }
 
 :root{
-  --primary-color: #1851ee;
+  --primary-color: #1a53ff;
+  --primary-hover: #99b3ff;
   --default-black: #0e0d0de0;
 }
 
@@ -17,7 +19,7 @@ body{
 /* Navbar styling */
 
 .navbar{
-  @apply text-[1.2rem] font-medium flex justify-between items-center px-3 py-5 lg:px-20 z-1000 absolute w-full;
+  @apply text-[1.2rem] font-medium flex justify-between items-center px-3 py-5 lg:px-20 z-1000 absolute w-full text-white;
 }
 
 .logo{
@@ -26,15 +28,19 @@ body{
 }
 
 .nav-link{
-  @apply hidden lg:flex *:hover:text-primary-color *:hover:transition *:hover:delay-150 justify-between w-100
+  @apply hidden lg:flex *:hover:text-hover *:hover:transition *:hover:delay-150 justify-between w-100
 }
 
 .icon{
-  @apply hover:text-primary-color hover:transition hover:delay-150
+  @apply hover:text-hover hover:transition hover:delay-150
+}
+
+.btn{
+  @apply border border-default-black px-6 py-1 md:px-8 md:py-3 rounded cursor-pointer
 }
 
 .login-btn{
-  @apply transition delay-150 hover:border-primary-color hover:text-primary-color border border-default-black px-6 py-1 md:px-8 md:py-3 rounded cursor-pointer
+  @apply transition delay-150 hover:border-hover hover:text-hover px-6 py-1 md:px-8 md:py-3 rounded cursor-pointer border
 }
 
 /* End of Navbar styling */

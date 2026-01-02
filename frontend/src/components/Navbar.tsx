@@ -1,48 +1,47 @@
 import { Menu ,Search, ShoppingCart, User } from "lucide-react"
 import { Link } from "react-router-dom"
+import Button from "./Button"
 
-const Navbar = () => {
+const Navbar = ({color, borderColor}:{color?: string, borderColor?: string}) => {
   return (
-    <header className="w-full text-4xl bg-[url(./assets/woman-shop.jpg)] bg-cover bg-left h-screen relative before:absolute before:bg-[#a3a3d14f] before:w-full before:h-full">
-        <div className="navbar">
-            
-            {/* Logo */}
-            <Link to={'/'} className="logo">FlowShop</Link>
+    <div className="navbar">
+        
+        {/* Logo */}
+        <Link to={'/'} className="logo">FlowShop</Link>
 
-            {/* nav links */}
-            <nav className="nav-link">
-                <Link to={'/'} >Home</Link>
-                <Link to={'/product'}>Products</Link>
-                <Link to={'/'}>About</Link>
-                <Link to={'/'}>Contact</Link>
-            </nav>
+        {/* nav links */}
+        <nav className={`nav-link ${color}`}>
+            <Link to={'/'} >Home</Link>
+            <Link to={'/product'}>Products</Link>
+            <Link to={'/'}>About</Link>
+            <Link to={'/'}>Contact</Link>
+        </nav>
 
-            {/* icons */}
-            <div className="flex gap-10 items-center ">
-                <div className="xl:flex gap-6 items-center hidden">
-                    <button className="cursor-pointer">
-                        <Search className="icon"/>
-                    </button>
-                    <Link to={'/'} className="icon">
-                        <User />
-                    </Link>
-                    <Link to={'/'} className="icon">
-                        <ShoppingCart/>
-                    </Link>
-                </div>
+        {/* icons */}
+        <div className="flex gap-10 items-center">
+            <div className={`xl:flex gap-6 items-center hidden ${color}`}>
+                <Button className="cursor-pointer">
+                    <Search className="icon"/>
+                </Button>
+                <Link to={'/'} className="icon">
+                    <User />
+                </Link>
+                <Link to={'/'} className="icon">
+                    <ShoppingCart/>
+                </Link>
+            </div>
 
-                {/* Login and menu */}
-                <div className="flex sm:w-48 md:w-fit sm:justify-between gap-6">
-                    <button className="login-btn">
-                        <Link to={'/'}>Login</Link>
-                    </button>
-                    <button className="xl:hidden cursor-pointer">
-                        <Menu size={'45px'} className="icon"/>
-                    </button>
-                </div>
+            {/* Login and menu */}
+            <div className={`flex sm:w-48 md:w-fit sm:justify-between gap-6 ${color}`}>   
+                <Button className={`login-btn ${borderColor}`}>
+                    <Link to={'/'}>Login</Link>
+                </Button>
+                <Button className="xl:hidden cursor-pointer">
+                    <Menu size={'45px'} className="icon"/>
+                </Button>
             </div>
         </div>
-    </header>
+    </div>
   )
 }
 
