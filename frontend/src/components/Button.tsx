@@ -2,7 +2,7 @@ import React from 'react'
 
 function Button({className, children} : {className?: string, children: React.ReactNode}) {
   return (
-    <button className={className || 'btn'}>
+    <button className={`btn ${className}`}>
         { children }
     </button>
   )
