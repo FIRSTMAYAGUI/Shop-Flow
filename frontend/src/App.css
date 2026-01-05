@@ -34,7 +34,7 @@ body{
 }
 
 .icon{
-  @apply hover:text-hover hover:transition hover:delay-150
+  @apply hover:text-hover hover:transition hover:delay-150 cursor-pointer
 }
 
 /* End of Navbar styling */

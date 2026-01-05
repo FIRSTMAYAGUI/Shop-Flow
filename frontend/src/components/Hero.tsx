@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Button from "./Button"
 
 const Hero = () => {
@@ -14,7 +15,7 @@ const Hero = () => {
 
       <div className="mt-8 flex gap-4">
         <Button className="bg-primary-color text-white font-semibold hover:bg-secondary-color border-none">
-          Shop Now
+          <Link to={'/product'}>Shop Now</Link>
         </Button>
 
         <Button className="text-white border-white hover:border-hover hover:text-hover">

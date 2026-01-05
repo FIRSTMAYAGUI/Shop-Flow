@@ -20,9 +20,9 @@ const Navbar = ({color, borderColor}:{color?: string, borderColor?: string}) => 
         {/* icons */}
         <div className="flex gap-10 items-center">
             <div className={`xl:flex gap-6 items-center hidden ${color}`}>
-                <Button className="border-none">
+                <button className="">
                     <Search className="icon"/>
-                </Button>
+                </button>
                 <Link to={'/'} className="icon">
                     <User />
                 </Link>
