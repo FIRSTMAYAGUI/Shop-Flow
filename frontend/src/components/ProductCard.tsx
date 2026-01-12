@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Button from './Button'
 import WomanShop from "../assets/woman-shop.jpg"
 import { ShoppingCart } from 'lucide-react'

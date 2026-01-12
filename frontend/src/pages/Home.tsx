@@ -1,3 +1,4 @@
+import Button from "../components/Button"
 import Container from "../components/Container"
 import ProductCard from "../components/ProductCard"
 import SectionTitle from "../components/SectionTitle"
@@ -16,6 +17,10 @@ const  Home = () => {
           <ProductCard/>
           <ProductCard/>
           <ProductCard/>
+        </div>
+
+        <div className="flex justify-center items-center">
+          <Button className="border border-secondary-color text-secondary-color hover:border-primary-color hover:text-primary-color">View more</Button>
         </div>
       </div>
     </Container>
