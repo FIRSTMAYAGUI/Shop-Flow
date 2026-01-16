@@ -5,6 +5,10 @@ import SectionTitle from "../components/SectionTitle"
 import  WomanShop  from "../assets/woman-shop.jpg"
 import  WomanWithGlasses  from "../assets/woman-infront-building.jpg"
 import  WomanSmilling  from "../assets/brunette-haired-woman-smiling.jpg"
+import GameController from "../assets/gaming-controllers.jpg"
+import Technology from "../assets/technology.jpg"
+import Basketball from "../assets/basketball.jpg"
+import GirlWithHeadset from "../assets/girl-with-headset.jpg"
 import { Link } from "react-router-dom"
 import CategoryCard from "../components/CategoryCard"
 
@@ -17,9 +21,9 @@ const  Home = () => {
           <SectionTitle>Featured Products</SectionTitle>
           <div className="w-full max-w-8xl flex flex-wrap gap-12 justify-center ">
             <ProductCard 
-              imageUrl={WomanShop}
+              imageUrl={Technology}
               alt={""} 
-              productName={"My Product"}
+              productName={"Latest Latops"}
               categoryName={"Electronics"}
               price={44.9}
             />
@@ -41,9 +45,9 @@ const  Home = () => {
             />
 
             <ProductCard 
-              imageUrl={WomanSmilling}
+              imageUrl={GirlWithHeadset}
               alt={""} 
-              productName={"Good Bags"}
+              productName={"High quality Headsets"}
               categoryName={"Fashion"}
               price={59.9}
             />
@@ -63,7 +67,12 @@ const  Home = () => {
           <SectionTitle>Popular Categories</SectionTitle>
           <div className="w-full max-w-8xl flex flex-wrap gap-12 justify-center ">
             <CategoryCard
-            imageUrl = {WomanSmilling}
+            imageUrl = {Basketball}
+            alt = {''}
+            categoryName = {'Sports'}
+            />
+            <CategoryCard
+            imageUrl = {Technology}
             alt = {''}
             categoryName = {'Electronics'}
             />
@@ -73,12 +82,7 @@ const  Home = () => {
             categoryName = {'Fashion'}
             />
             <CategoryCard
-            imageUrl = {WomanSmilling}
-            alt = {''}
-            categoryName = {'Home Appliance'}
-            />
-            <CategoryCard
-            imageUrl = {WomanSmilling}
+            imageUrl = {GameController}
             alt = {''}
             categoryName = {'Gaming'}
             />
