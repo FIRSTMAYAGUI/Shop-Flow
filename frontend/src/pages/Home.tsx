@@ -4,7 +4,6 @@ import ProductCard from "../components/ProductCard"
 import SectionTitle from "../components/SectionTitle"
 import  WomanShop  from "../assets/woman-shop.jpg"
 import  WomanWithGlasses  from "../assets/woman-infront-building.jpg"
-import  WomanSmilling  from "../assets/brunette-haired-woman-smiling.jpg"
 import GameController from "../assets/gaming-controllers.jpg"
 import Technology from "../assets/technology.jpg"
 import Basketball from "../assets/basketball.jpg"
@@ -65,7 +64,7 @@ const  Home = () => {
       <Container>
         <div className="flex flex-col py-10 gap-18">
           <SectionTitle>Popular Categories</SectionTitle>
-          <div className="w-full max-w-8xl flex flex-wrap gap-12 justify-center ">
+          <div className="w-full flex flex-wrap gap-12 justify-center ">
             <CategoryCard
             imageUrl = {Basketball}
             alt = {''}
@@ -86,6 +85,25 @@ const  Home = () => {
             alt = {''}
             categoryName = {'Gaming'}
             />
+          </div>
+        </div>
+      </Container>
+
+      {/* CTA section */}
+      <Container>
+        <div className="w-full rounded-2xl p-16 bg-linear-to-r from-primary-color to-hover text-white">
+          <h2 className="text-5xl font-extrabold max-w-2xl">
+            Ready to Upgrade Your Shopping Experience?
+          </h2>
+
+          <p className="mt-6 text-lg max-w-xl opacity-90">
+            Shop smarter with curated products, fast delivery, and exclusive deals.
+          </p>
+
+          <div className="mt-8">
+            <Button className="bg-white text-primary-color font-bold px-8 py-4 rounded-xl hover:bg-gray-100">
+              <Link to="/product">Browse Products</Link>
+            </Button>
           </div>
         </div>
       </Container>
