@@ -37,17 +37,32 @@ function Footer() {
         {/* Links column */}
         <FooterColumnLinks
           title="Useful Links"
-          links={["Home", "Products", "Categories", "About", "Contact"]}
+          links={[
+            {label: "Home", to: "/"}, 
+            {label: "Products", to: "/products"}, 
+            {label: "About", to: "/"}, 
+            {label: "Contact", to: "/"}
+          ]}
         />
 
         <FooterColumnLinks
           title="Company"
-          links={["Privacy Policy", "Terms & Conditions", "Careers", "Blog"]}
+          links={[
+            {label: "Help Center", to: "/"}, 
+            {label: "FAQs", to: "/"}, 
+            {label: "Returns", to: "/"}, 
+            {label: "Shipping", to: "/"}
+          ]}
         />
 
         <FooterColumnLinks
           title="Support"
-          links={["Help Center", "FAQs", "Returns", "Shipping"]}
+          links={[
+            {label: "Help Center", to: "/"}, 
+            {label: "FAQs", to: "/"}, 
+            {label: "Returns", to: "/"}, 
+            {label: "Shipping", to: "/"}
+          ]}
         />
       </div>
 

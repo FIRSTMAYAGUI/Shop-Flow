@@ -1,6 +1,16 @@
 import { Link } from 'react-router-dom'
 
-const FooterColumnLinks = ({ title, links }: { title: string, links: string[] }) => {
+type FooterLinkDestination = {
+  label: string
+  to: string
+}
+
+type FooterColumnLinksProps = {
+  title: string
+  links: FooterLinkDestination[]
+}
+
+const FooterColumnLinks = ({ title, links }: FooterColumnLinksProps) => {
   return (
     <div>
       <h3 className="text-white font-semibold text-lg mb-6">
@@ -10,10 +20,10 @@ const FooterColumnLinks = ({ title, links }: { title: string, links: string[] })
         {links.map((link, index) => (
           <li key={index}>
             <Link
-              to=""
+              to={link.to}
               className="hover:text-secondary-color transition"
             >
-              {link}
+              {link.label}
             </Link>
           </li>
         ))}

@@ -50,6 +50,34 @@ const  Home = () => {
               categoryName={"Fashion"}
               price={59.9}
             />
+            <ProductCard 
+            imageUrl={GameController}
+            alt={""} 
+            productName={"Newest Gaming Controller"}
+            categoryName={"Gaming"}
+            price={35}
+          />
+          <ProductCard 
+            imageUrl={GirlWithHeadset}
+            alt={""} 
+            productName={"High quality Headsets"}
+            categoryName={"Fashion"}
+            price={59.9}
+          />
+          <ProductCard 
+            imageUrl={Basketball}
+            alt={""} 
+            productName={"Baskeball outfits"}
+            categoryName={"Sports"}
+            price={20}
+          />
+          <ProductCard 
+            imageUrl={GirlWithHeadset}
+            alt={""} 
+            productName={"High quality Headsets"}
+            categoryName={"Fashion"}
+            price={59.9}
+          />
           </div>
 
           <div className="flex justify-center items-center">
