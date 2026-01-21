@@ -5,6 +5,7 @@ import ProductList from './pages/ProductList'
 import AppLayout from './layouts/AppLayout'
 import HomeLayout from './layouts/HomeLayout'
 import Favorites from './pages/Favorites'
+import ProductDetail from './pages/ProductDetail'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           </Route>
           <Route element={<AppLayout/>}>
             <Route path='/product' element={<ProductList />}/>
+            <Route path='/product-detail' element={<ProductDetail/>} />
             <Route path='/favorites' element={<Favorites/>}/>
           </Route>
         </Routes>
