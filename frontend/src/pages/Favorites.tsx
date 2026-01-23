@@ -8,6 +8,7 @@ import  WomanWithGlasses  from "../assets/woman-infront-building.jpg"
 import GameController from "../assets/gaming-controllers.jpg"
 import Technology from "../assets/technology.jpg"
 import GirlWithHeadset from "../assets/girl-with-headset.jpg"
+import Button from "../components/Button"
 
 const Favorites = () => {
   return (
@@ -76,6 +77,45 @@ const Favorites = () => {
             categoryName={"Fashion"}
             price={59.9}
           />         
+        </div>
+        {/* pagination UI */}
+        <div className="mt-12 flex justify-center items-center gap-3">
+          
+          {/* Previous */}
+          <Button
+            className="px-4 py-2 border border-neutral-300 rounded-md text-sm hover:bg-gray-100 transition"
+          >
+            Prev
+          </Button>
+
+          {/* Page numbers */}
+          <button className="px-4 py-2 rounded-md text-sm border border-neutral-300 bg-primary-color text-white">
+            1
+          </button>
+
+          <button className="px-4 py-2 rounded-md text-sm border border-neutral-300 hover:bg-gray-100 transition">
+            2
+          </button>
+
+          <button className="px-4 py-2 rounded-md text-sm border border-neutral-300 hover:bg-gray-100 transition">
+            3
+          </button>
+
+          <button className="px-4 py-2 rounded-md text-sm border border-neutral-300 hover:bg-gray-100 transition">
+            4
+          </button>
+
+          <button className="px-4 py-2 rounded-md text-sm border border-neutral-300 hover:bg-gray-100 transition">
+            5
+          </button>
+
+          {/* Next */}
+          <Button
+            className="px-4 py-2 border border-neutral-300 rounded-md text-sm hover:bg-gray-100 transition"
+          >
+            Next
+          </Button>
+
         </div>
       </Container>
     </>
