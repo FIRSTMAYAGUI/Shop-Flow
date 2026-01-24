@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom'
 import Button from './Button'
 import { ShoppingCart } from 'lucide-react'
 
@@ -14,13 +15,15 @@ const ProductCard = ({imageUrl, alt, productName, categoryName, price}: ProductC
   return (
     <div className="w-75 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition"> 
       {/* Image */}
-      <div className="h-90 w-full overflow-hidden cursor-pointer">
-        <img
-          src={imageUrl}
-          alt={alt ? alt : "image here"}
-          className="w-full h-full object-cover"
-        />
-      </div>
+      <Link to={'/product-detail'}>
+        <div className="h-90 w-full overflow-hidden cursor-pointer">
+          <img
+            src={imageUrl}
+            alt={alt ? alt : "image here"}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </Link>
 
       {/* Content */}
       <div className="p-5 flex flex-col gap-2">
