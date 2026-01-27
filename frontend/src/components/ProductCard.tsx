@@ -16,11 +16,10 @@ const ProductCard = ({imageUrl, alt, productName, categoryName, price}: ProductC
     <div className="relative w-75 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition"> 
 
       {/* Favorite icon */}
-      <button
-        className="absolute top-4 right-4 z-10 bg-white/90 p-2 rounded-full shadow hover:bg-primary-color hover:text-white transition"
+      <button className="absolute top-4 right-4 z-10 bg-white/90 rounded-full hover:text-primary-color transition p-2 hover:bg-neutral-100 text-gray-500"
         aria-label="Add to favorites"
       >
-        <Heart size={18} />
+        <Heart size={20} />
       </button>
       {/* Image */}
       <Link to={'/product-detail'}>
