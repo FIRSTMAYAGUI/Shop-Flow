@@ -7,6 +7,7 @@ import HomeLayout from './layouts/HomeLayout'
 import Favorites from './pages/Favorites'
 import ProductDetail from './pages/ProductDetail'
 import CartPage from './pages/CartPage'
+import OrdersPage from './pages/OrdersPage'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Route path='/product-detail' element={<ProductDetail/>} />
             <Route path='/favorites' element={<Favorites/>}/>
             <Route path='/cart' element={<CartPage/>}/>
+            <Route path='/orders' element={<OrdersPage/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
